@@ -2,7 +2,7 @@
 
 Signed security patches for Triton. Triton reads this folder at
 
-    https://raw.githubusercontent.com/ZeroC0deT1me/triton-patches/main/
+    https://raw.githubusercontent.com/Strombos/triton-patches/main/
 
 and you can change that in Settings > Security > Updates (an https folder, or a folder on disk for offline machines).
 
