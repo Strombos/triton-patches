@@ -17,6 +17,16 @@ Nothing here is trusted because of where it is hosted. Each Triton build carries
 
 The private signing keys are never stored in this repository.
 
+## Full builds
+
+- `release.properties` + `release.properties.sig`: the signed notice of the newest full build: its release id (`p155-b6`), download link, size and SHA-256. Signed with the same keys, in a context of its own, so it can never pass for a feed or a patch.
+
+Triton's updater (Settings > System > Triton Update) reads the notice, downloads the jar from the link, refuses it unless the size and SHA-256 match, and installs it on restart. The previous jar is kept as `triton.jar.previous`; a new build that fails to finish starting twice is replaced by it automatically.
+
+To announce a build, upload the jar first (`triton-release\upload-release.ps1`), then:
+
+    .\publish-release.ps1 -Release p155-b6 -Key E:\triton-patch-primary.key -Summary "One line for the update page."
+
 ## Releasing a patch
 
     .\release-patch.ps1 -Manifest path\to\patch.properties -Key E:\triton-patch-primary.key
